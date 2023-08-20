@@ -1,10 +1,6 @@
-
-
-
-
 # Weather API App
 
-This is a Task Management System built with Laravel 10. It offers a set of APIs to manage tasks and users. The project also incorporates Docker for containerization. This document will guide you on setting up and running the project.
+My Design is user-friendly it easy to use, in first glance you may know how to use or navigate it. My code also is well-organized, always ready for the future update, even an junior can understand coz I wrote it in detailed way having a docblock.
 
 ## Prerequisites
 
@@ -21,6 +17,8 @@ cd weather-app-api`
 
 2.  **Frontend Repository**:
 For the frontend part of the application, refer to: [Weather App Web](https://github.com/taliffsss/weather-app-web.git).
+
+
 
 ### Running with Docker:
 
@@ -61,3 +59,4 @@ The application will start, and by default, it should be available at `http://lo
 -   **GET Weather**: `/api/v1/weather?lat=14.5833&lng=120.9667`
 -   **GET forecast**: `/api/v1/forecast?lat=14.5833&lng=120.9667`
 -   **GET city**: `/api/v1/city?query=manila`
+
