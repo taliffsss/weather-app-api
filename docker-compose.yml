@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  task_api:
+    build:
+      context: ./api/.
+      dockerfile: Dockerfile
+    container_name: task_api_${APP_ENV}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - ./:/var/www/html/api
+    env_file:
+      - .env
