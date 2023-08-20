@@ -1,66 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Weather API App
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This is a Task Management System built with Laravel 10. It offers a set of APIs to manage tasks and users. The project also incorporates Docker for containerization. This document will guide you on setting up and running the project.
 
-## Learning Laravel
+## Prerequisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1.  Ensure you have Docker installed on your machine (for Docker setup). If not, download and install Docker from the [official website](https://www.docker.com/).
+    
+2.  PHP, Composer, and Laravel CLI should be available on your system (for native engine setup).
+    
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Setup
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1.  **Clone the Backend Repository**:
+`git clone https://github.com/taliffsss/weather-app-api.git
+cd weather-app-api` 
 
-## Laravel Sponsors
+2.  **Frontend Repository**:
+For the frontend part of the application, refer to: [Weather App Web](https://github.com/taliffsss/weather-app-web.git).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Running with Docker:
 
-### Premium Partners
+3.1 If you wish to run the application in a Docker container:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+`sh docker.sh prod build` 
 
-## Contributing
+-   `master` and `main` are used for the production environment.
+-   `build` command is used to build the Docker image.
+- Now you should be able to access the application on your local host.
+Docker setup usage:
+Run `sh docker.sh [branch alias] up`
+-   **1st parameter (`branch`)**:
+    -   `develop` or `dev`: Uses the development environment.
+    -   `staging` or `staging`: Uses the staging environment.
+    -   `master`, `main`, or `prod`: Uses the production environment.
+-   **2nd parameter (`command`)**:
+    -   `up`: Start the container.
+    -   `build`: Build the Docker container.
+    -   `down`: Stop the container.
+    -   `ps`: List containers.
+    -   `exec`: Execute a command in a running container.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Running with Native Engine:
 
-## Code of Conduct
+3.1 **Install Dependencies**:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+`composer install && composer artisan key:generate && php artisan jwt:secret` 
 
-## Security Vulnerabilities
+3.2 **Run the Application**:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+`php artisan serve` 
 
-## License
+The application will start, and by default, it should be available at `http://localhost:8000`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## API Routes
+
+-   **GET Weather**: `/api/v1/weather?lat=14.5833&lng=120.9667`
+-   **GET forecast**: `/api/v1/forecast?lat=14.5833&lng=120.9667`
+-   **GET city**: `/api/v1/city?query=manila`
