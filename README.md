@@ -1,6 +1,7 @@
+
 # Weather API App
 
-My Design is user-friendly it easy to use, in first glance you may know how to use or navigate it. My code also is well-organized, always ready for the future update, even an junior can understand coz I wrote it in detailed way having a docblock.
+My Design is user-friendly and easy to use, at first glance you may know how to use or navigate it. My code also is well-organized, always ready for future updates, even a junior can understand because I wrote it in a detailed way having a docblock.
 
 ## Prerequisites
 
@@ -17,9 +18,15 @@ cd weather-app-api`
 
 2.  **Frontend Repository**:
 For the frontend part of the application, refer to: [Weather App Web](https://github.com/taliffsss/weather-app-web.git).
-
-
-
+3. Free signup with:
+    [Openweather](https://openweathermap.org/) - for getting weather forecast
+    [Mapbox](https://www.mapbox.com/) - for place or city searching
+4. Place API and KEY of mapbox and openweather in .env file
+     ```
+     OPEN_WEATHER_API=
+     OPEN_WEATHER_KEY=
+     MAPBOX_API=
+     MAPBOX_KEY=
 ### Running with Docker:
 
 3.1 If you wish to run the application in a Docker container:
@@ -58,5 +65,5 @@ The application will start, and by default, it should be available at `http://lo
 
 -   **GET Weather**: `/api/v1/weather?lat=14.5833&lng=120.9667`
 -   **GET forecast**: `/api/v1/forecast?lat=14.5833&lng=120.9667`
--   **GET city**: `/api/v1/city?query=manila`
+-   **GET city**: `/api/v1/city?query=osaka`
 
